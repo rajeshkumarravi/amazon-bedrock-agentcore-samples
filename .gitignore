@@ -225,4 +225,9 @@ pyrightconfig.json
 ### Zip file for prereq infa deployment
 lambda.zip
 .kiro/
-.agent_manifest.json
+
+### CDK artifacts
+cdk.out/
+### Bedrock AgentCore ###
+.bedrock_agentcore/
+.bedrock_agentcore.yaml

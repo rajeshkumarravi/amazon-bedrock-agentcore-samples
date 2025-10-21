@@ -7,6 +7,10 @@
 # Icon must end with two \r
 Icon
 
+#tutorials generated files
+01-tutorials/**/.dockerignore
+01-tutorials/**/Dockerfile
+01-tutorials/**/*.py
 
 # Thumbnails
 ._*

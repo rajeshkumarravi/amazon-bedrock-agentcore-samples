@@ -1,0 +1,95 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'CloudFormation template to enable observability for Bedrock AgentCore resources'
+
+Parameters:
+  ResourceId:
+    Type: String
+    Description: 'The ID of the Bedrock AgentCore resource (e.g., memory store ID)'
+    Default: 'my-memory-id'
+  
+  ResourceArn:
+    Type: String
+    Description: 'The ARN of the Bedrock AgentCore resource'
+    Default: 'arn:aws:bedrock-agentcore:us-east-1:123456789012:memory/my-memory-id'
+  
+  Region:
+    Type: String
+    Description: 'AWS Region for the resources'
+    Default: 'us-east-1'
+    AllowedValues:
+      - us-east-1
+      - us-west-2
+      - eu-west-1
+      - ap-southeast-1
+
+Resources:
+  # CloudWatch Log Group for vended log delivery
+  BedrockAgentCoreLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub '/aws/vendedlogs/bedrock-agentcore/${ResourceId}'
+      RetentionInDays: 14
+
+  # Delivery Source for Application Logs
+  LogsDeliverySource:
+    Type: AWS::Logs::DeliverySource
+    Properties:
+      Name: !Sub '${ResourceId}-logs-source'
+      LogType: 'APPLICATION_LOGS'
+      ResourceArn: !Ref ResourceArn
+
+  # Delivery Destination for Logs (CloudWatch Logs)
+  LogsDeliveryDestination:
+    Type: AWS::Logs::DeliveryDestination
+    Properties:
+      Name: !Sub '${ResourceId}-logs-destination'
+      DeliveryDestinationType: 'CWL'
+      DestinationResourceArn: !GetAtt BedrockAgentCoreLogGroup.Arn
+
+  # Delivery for Logs (connects logs source to logs destination)
+  LogsDelivery:
+    Type: AWS::Logs::Delivery
+    Properties:
+      DeliverySourceName: !Ref LogsDeliverySource
+      DeliveryDestinationArn: !GetAtt LogsDeliveryDestination.Arn
+    DependsOn:
+      - LogsDeliverySource
+      - LogsDeliveryDestination
+
+  # Delivery Source for Traces
+  TracesDeliverySource:
+    Type: AWS::Logs::DeliverySource
+    Properties:
+      Name: !Sub '${ResourceId}-traces-source'
+      LogType: 'TRACES'
+      ResourceArn: !Ref ResourceArn
+
+  # Delivery Destination for Traces (X-Ray)
+  TracesDeliveryDestination:
+    Type: AWS::Logs::DeliveryDestination
+    Properties:
+      Name: !Sub '${ResourceId}-traces-destination'
+      DeliveryDestinationType: 'XRAY'
+
+  # Delivery for Traces (connects traces source to traces destination)
+  TracesDelivery:
+    Type: AWS::Logs::Delivery
+    Properties:
+      DeliverySourceName: !Ref TracesDeliverySource
+      DeliveryDestinationArn: !GetAtt TracesDeliveryDestination.Arn
+    DependsOn:
+      - TracesDeliverySource
+      - TracesDeliveryDestination
+
+Outputs:
+  LogGroupName:
+    Description: 'Name of the created CloudWatch Log Group'
+    Value: !Ref BedrockAgentCoreLogGroup
+    Export:
+      Name: !Sub '${AWS::StackName}-LogGroupName'
+
+  LogGroupArn:
+    Description: 'ARN of the created CloudWatch Log Group'
+    Value: !GetAtt BedrockAgentCoreLogGroup.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-LogGroupArn'

@@ -1,0 +1,7 @@
+bedrock-agentcore
+langchain[aws]
+langgraph
+arize-otel
+opentelemetry-sdk
+opentelemetry-exporter-otlp
+openinference-instrumentation-langchain

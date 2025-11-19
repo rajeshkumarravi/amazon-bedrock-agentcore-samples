@@ -74,6 +74,34 @@ curl -X POST http://localhost:8080/invocations \
 
 ## Step 5: Deploy to AgentCore Runtime and invoke
 
+### Deploy your agent with starter kit
+
+Install starter kit:
+```
+uv add --dev bedrock-agentcore-starter-toolkit
+```
+
+The following steps will be required to deploy an agent to AgentCore Runtime, refer to Get started with the Amazon Bedrock AgentCore starter toolkit, for detailed steps. If Uv is available, the starter toolkit will recommend direct code deployment. Otherwise it will default to container deployment type.
+
+First command is configure, which will start an interactive session where you configure the S3 bucket to upload the zip.
+```
+# provides an interactive CLI to configure
+agentcore configure -e agent.py -n strands_kit_direct_deploy --deployment_type direct_code_deploy --disable-memory
+```
+
+Next is launch which will create a zip deployment package, upload to the specified bucket and deploy the agent.
+```
+agentcore launch
+```
+
+Let's prompt the agent to tell a joke!
+```
+agentcore invoke '{"prompt":"Tell me a joke"}'
+```
+
+The first deployment takes time to install dependencies but subsequent updates to the agent optimizes this by re-using zipped dependencies
+
+
 ### Deploy your agent using `zip + boto3`:
 To download a wheel that's compatible with AgentCore Runtime, you use the uv pip `--python-platform` option. AgentCore Runtime only supports **arm64** instruction set architecture, run the following command. Replace `--python 3.x` with the version of the Python runtime you are using.
 ```
@@ -110,23 +138,26 @@ A ZIP archive containing Linux arm64 dependencies needs to be uploaded to S3 as 
 
 ```
 import boto3
+from dotenv import dotenv_values
 
-AGENT_NAME = "strands_direct_deploy"
-AGENT_RUNTIME_ID = "strands_direct_deploy-5iGWAs2am7"
-REGION = "us-east-1"
+config = dotenv_values(".env")
 
-ACCOUNT_ID = boto3.client('sts').get_caller_identity().get('Account')
-S3_BUCKET_NAME = f"bedrock-agentcore-code-{ACCOUNT_ID}-{REGION}"
+REGION = config.get("AWS_REGION", "us-east-1")
+AGENT_NAME = config.get("AGENT_NAME", "strands_direct_deploy")
+AGENT_RUNTIME_ID = config.get("AGENT_RUNTIME_ID", "")
+S3_BUCKET_NAME = config.get("S3_BUCKET_NAME", "")
 S3_PREFIX = f"{AGENT_NAME}/deployment_package.zip"
-AC_EXEC_ROLE_ARN = f"arn:aws:iam::{ACCOUNT_ID}:role/AmazonBedrockAgentCoreSDKRuntime-{REGION}-8716e35178"
+AC_EXEC_ROLE_ARN = config.get("AC_EXEC_ROLE_ARN", "")
+ACCOUNT_ID = boto3.client('sts').get_caller_identity().get('Account')
+
 
 def deploy():
     s3_client = boto3.client('s3', region_name='us-west-2')
     print("Uploading deployment.zip to S3...")
     s3_client.upload_file( 
-        'deployment_package.zip', # archive on file system
-        S3_BUCKET_NAME, # bucket name
-        S3_PREFIX, # prefix
+        'deployment_package.zip',  # archive on file system
+        S3_BUCKET_NAME,
+        S3_PREFIX,
         ExtraArgs={'ExpectedBucketOwner': ACCOUNT_ID}  # ownership check
     )
     print("Upload completed successfully!") 

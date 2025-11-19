@@ -9,3 +9,8 @@ dependencies = [
     "bedrock-agentcore>=1.0.6",
     "strands-agents>=1.16.0",
 ]
+
+[dependency-groups]
+dev = [
+    "bedrock-agentcore-starter-toolkit>=0.1.34",
+]

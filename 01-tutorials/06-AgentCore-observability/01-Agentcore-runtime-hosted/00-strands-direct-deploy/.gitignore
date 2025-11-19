@@ -1,0 +1,5 @@
+.python-version
+!*.py
+
+deployment_package
+*.zip

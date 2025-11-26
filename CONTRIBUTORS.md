@@ -22,7 +22,7 @@
 - mttanke
 - mvangara10
 - ozhn
-- Polaris Jhandi 
+- Polaris Jhandi
 - premaiyer
 - rahullks
 - rameshv29
@@ -38,6 +38,7 @@
 - erezweinstein5
 - HardikThakkar94
 - brianloyal
+- ireneybean
 - jagdeep1
 - Sunil Ramachandra
 - Sandeep Raveesh-Babu
@@ -58,3 +59,5 @@
 - Chaitra Mathur (mchaitra007)
 - govindhi
 - Sandesh R
+- jld23
+- mani-aiml

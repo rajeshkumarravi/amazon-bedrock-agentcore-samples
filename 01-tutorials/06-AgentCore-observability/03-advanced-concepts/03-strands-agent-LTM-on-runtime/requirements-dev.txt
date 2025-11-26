@@ -1,3 +1,0 @@
-uv
-bedrock-agentcore-starter-toolkit
-python-dotenv

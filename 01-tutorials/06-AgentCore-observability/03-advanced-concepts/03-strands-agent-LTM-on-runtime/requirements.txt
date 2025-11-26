@@ -1,5 +1,0 @@
-boto3
-strands-agents
-strands-agents[otel]
-strands-agents-tools
-bedrock-agentcore

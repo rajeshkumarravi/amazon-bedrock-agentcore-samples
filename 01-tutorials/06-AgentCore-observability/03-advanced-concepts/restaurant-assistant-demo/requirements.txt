@@ -1,3 +1,4 @@
+ddgs
 strands-agents
 strands-agents[otel]
 strands-agents-tools

@@ -6,6 +6,7 @@
 - aristsakpinis93
 - aurbac
 - bergjaak
+- bioerrorlog
 - chanbi
 - crupakheti
 - danystinson
@@ -14,6 +15,7 @@
 - EashanKaushik
 - Fabian Rami
 - Grace Lang
+- Hari Tripathi
 - Joshua Samuel
 - khastation
 - manchandakp
@@ -21,6 +23,7 @@
 - Meghana Ashok
 - mttanke
 - mvangara10
+- nilakshdas
 - ozhn
 - Polaris Jhandi
 - premaiyer
@@ -29,6 +32,7 @@
 - rohillasandeep
 - satveerkhurpa
 - seanslavichaws
+- Shanicus Yee
 - sssumarss
 - sundargthb
 - vedashree1110
@@ -61,3 +65,10 @@
 - Sandesh R
 - jld23
 - mani-aiml
+- Sindhura Palakodety
+- Bhuvan Annamreddi
+- Sparsh Wadhwa (SparshWadhwa)
+- Lana Zhang
+- Bharathi Srinivasan
+- Antonio Rodriguez (rodzanto)
+

@@ -2,6 +2,7 @@
 
 - aarora79
 - akshseh
+- anajmi
 - architec
 - aristsakpinis93
 - aurbac
@@ -37,6 +38,7 @@
 - sundargthb
 - vedashree1110
 - vedashreevinay
+- Venkatakrishna Pullela
 - vgodwinamz
 - w601sxs
 - erezweinstein5
@@ -71,4 +73,8 @@
 - Lana Zhang
 - Bharathi Srinivasan
 - Antonio Rodriguez (rodzanto)
-
+- otamaryx
+- kevlw
+- iprivit
+- vargas-dann-0896
+- razkenari

@@ -245,3 +245,5 @@ cdk.out/
 .bedrock_agentcore/
 .bedrock_agentcore.yaml
 .vscode/
+
+node_modules

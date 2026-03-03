@@ -14,6 +14,7 @@
 - dhawalkp
 - didhd
 - EashanKaushik
+- ezzara
 - Fabian Rami
 - Grace Lang
 - Hari Tripathi
@@ -83,5 +84,10 @@
 - Sunita Koppar (skoppar)
 - Gi Kim (giryoong)
 - richatt
-- richatt
 - Hideki Tane
+- xinaizha
+- Traci Lim (longwind48)
+- Jerad Engebreth (jcengebreth)
+- Roberto Catalano
+- afarntrog
+- Sid Ahmed boudboub (sierrabravo98)

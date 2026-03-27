@@ -1,0 +1,5 @@
+boto3
+bedrock-agentcore
+pydantic-ai-slim[bedrock]
+opentelemetry-sdk
+opentelemetry-exporter-otlp

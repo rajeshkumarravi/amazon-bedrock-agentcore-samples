@@ -1,5 +1,6 @@
-langgraph
-langchain[aws]
-langsmith[otel]
+ddgs
+langgraph>=0.3.23
+langchain[aws]>=0.3.21
 opentelemetry-instrumentation-langchain
 bedrock-agentcore
+aws-opentelemetry-distro==0.17.0

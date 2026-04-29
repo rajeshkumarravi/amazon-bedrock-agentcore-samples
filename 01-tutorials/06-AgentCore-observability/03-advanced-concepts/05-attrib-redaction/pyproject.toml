@@ -1,0 +1,13 @@
+[project]
+name = "05-attrib-redaction"
+version = "0.1.0"
+description = "Demo to redact attributes"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "bedrock-agentcore>=1.7.0",
+    "bedrock-agentcore-starter-toolkit>=0.3.6",
+    "opentelemetry-processor-baggage>=0.62b1",
+    "strands-agents-tools>=0.5.1",
+    "strands-agents[otel]>=1.37.0",
+]

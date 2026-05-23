@@ -1,6 +1,4 @@
-ddgs
+bedrock-agentcore
 strands-agents
 strands-agents[otel]
-strands-agents-tools
-bedrock-agentcore
 aws-opentelemetry-distro>=0.16.0,<0.17.0

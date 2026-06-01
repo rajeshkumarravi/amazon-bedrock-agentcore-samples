@@ -264,3 +264,8 @@ Dockerfile
 01-tutorials/03-AgentCore-identity/07-Outbound_Auth_3LO_ECS_Fargate/backend/session_binding/requirements.txt
 01-tutorials/03-AgentCore-identity/07-Outbound_Auth_3LO_ECS_Fargate/cdk.context.json
 .triton/
+.omni/
+.claude/
+.github/
+.cursor/
+.agents/

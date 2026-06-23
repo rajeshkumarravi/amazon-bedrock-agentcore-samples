@@ -1,0 +1,7 @@
+google-adk>=1.17.0
+bedrock-agentcore>=1.0.3
+botocore[crt]>=1.35.0
+opentelemetry-sdk
+opentelemetry-exporter-otlp-proto-http
+openinference-instrumentation-google-adk
+aws-opentelemetry-distro>=0.17.1

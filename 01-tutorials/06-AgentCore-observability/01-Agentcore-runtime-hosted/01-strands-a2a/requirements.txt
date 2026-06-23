@@ -1,0 +1,4 @@
+bedrock-agentcore
+strands-agents
+strands-agents[otel]
+aws-opentelemetry-distro>=0.16.0,<0.17.0

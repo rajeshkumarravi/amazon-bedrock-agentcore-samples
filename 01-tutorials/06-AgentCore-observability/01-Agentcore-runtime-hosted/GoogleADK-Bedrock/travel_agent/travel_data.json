@@ -1,0 +1,99 @@
+{
+  "flights": {
+    "SEA-NYC": [
+      {"flight_id": "AA101", "departure": "06:00", "arrival": "14:30", "price": 420, "airline": "American"},
+      {"flight_id": "DL205", "departure": "09:15", "arrival": "17:45", "price": 385, "airline": "Delta"},
+      {"flight_id": "UA330", "departure": "14:00", "arrival": "22:30", "price": 350, "airline": "United"},
+      {"flight_id": "AA115", "departure": "16:30", "arrival": "01:00", "price": 310, "airline": "American"},
+      {"flight_id": "DL420", "departure": "20:00", "arrival": "04:30", "price": 290, "airline": "Delta"}
+    ],
+    "SEA-LAX": [
+      {"flight_id": "AS501", "departure": "07:00", "arrival": "09:30", "price": 180, "airline": "Alaska"},
+      {"flight_id": "SW220", "departure": "10:00", "arrival": "12:30", "price": 150, "airline": "Southwest"},
+      {"flight_id": "DL310", "departure": "12:30", "arrival": "15:00", "price": 195, "airline": "Delta"},
+      {"flight_id": "AA220", "departure": "15:45", "arrival": "18:15", "price": 175, "airline": "American"},
+      {"flight_id": "AS550", "departure": "19:00", "arrival": "21:30", "price": 165, "airline": "Alaska"}
+    ],
+    "NYC-MIA": [
+      {"flight_id": "AA450", "departure": "08:00", "arrival": "11:30", "price": 220, "airline": "American"},
+      {"flight_id": "JB101", "departure": "10:30", "arrival": "14:00", "price": 195, "airline": "JetBlue"},
+      {"flight_id": "DL550", "departure": "13:00", "arrival": "16:30", "price": 240, "airline": "Delta"},
+      {"flight_id": "UA200", "departure": "16:00", "arrival": "19:30", "price": 210, "airline": "United"},
+      {"flight_id": "JB205", "departure": "19:30", "arrival": "23:00", "price": 175, "airline": "JetBlue"}
+    ],
+    "LAX-NYC": [
+      {"flight_id": "AA600", "departure": "06:00", "arrival": "14:30", "price": 380, "airline": "American"},
+      {"flight_id": "DL700", "departure": "08:30", "arrival": "17:00", "price": 350, "airline": "Delta"},
+      {"flight_id": "UA450", "departure": "11:00", "arrival": "19:30", "price": 320, "airline": "United"},
+      {"flight_id": "JB300", "departure": "14:00", "arrival": "22:30", "price": 295, "airline": "JetBlue"},
+      {"flight_id": "AA650", "departure": "18:00", "arrival": "02:30", "price": 275, "airline": "American"}
+    ],
+    "MIA-SEA": [
+      {"flight_id": "DL800", "departure": "07:00", "arrival": "13:30", "price": 340, "airline": "Delta"},
+      {"flight_id": "AA700", "departure": "09:30", "arrival": "16:00", "price": 365, "airline": "American"},
+      {"flight_id": "UA550", "departure": "12:00", "arrival": "18:30", "price": 310, "airline": "United"},
+      {"flight_id": "AS700", "departure": "15:00", "arrival": "21:30", "price": 295, "airline": "Alaska"},
+      {"flight_id": "DL850", "departure": "18:30", "arrival": "01:00", "price": 280, "airline": "Delta"}
+    ]
+  },
+  "hotels": {
+    "NYC": [
+      {"hotel_id": "NYC001", "name": "The Plaza", "price_per_night": 450, "rating": 5, "neighborhood": "Midtown"},
+      {"hotel_id": "NYC002", "name": "Pod 51", "price_per_night": 120, "rating": 3, "neighborhood": "Midtown"},
+      {"hotel_id": "NYC003", "name": "The Standard", "price_per_night": 280, "rating": 4, "neighborhood": "Meatpacking"},
+      {"hotel_id": "NYC004", "name": "Ace Hotel", "price_per_night": 220, "rating": 4, "neighborhood": "NoMad"},
+      {"hotel_id": "NYC005", "name": "citizenM Times Square", "price_per_night": 175, "rating": 4, "neighborhood": "Times Square"}
+    ],
+    "LAX": [
+      {"hotel_id": "LAX001", "name": "Beverly Wilshire", "price_per_night": 550, "rating": 5, "neighborhood": "Beverly Hills"},
+      {"hotel_id": "LAX002", "name": "Freehand LA", "price_per_night": 95, "rating": 3, "neighborhood": "Downtown"},
+      {"hotel_id": "LAX003", "name": "The Line", "price_per_night": 180, "rating": 4, "neighborhood": "Koreatown"},
+      {"hotel_id": "LAX004", "name": "Shutters on the Beach", "price_per_night": 480, "rating": 5, "neighborhood": "Santa Monica"},
+      {"hotel_id": "LAX005", "name": "Mama Shelter", "price_per_night": 150, "rating": 3, "neighborhood": "Hollywood"}
+    ],
+    "MIA": [
+      {"hotel_id": "MIA001", "name": "Faena Miami", "price_per_night": 600, "rating": 5, "neighborhood": "Miami Beach"},
+      {"hotel_id": "MIA002", "name": "The Setai", "price_per_night": 480, "rating": 5, "neighborhood": "South Beach"},
+      {"hotel_id": "MIA003", "name": "Freehand Miami", "price_per_night": 85, "rating": 3, "neighborhood": "Miami Beach"},
+      {"hotel_id": "MIA004", "name": "The Standard Spa", "price_per_night": 320, "rating": 4, "neighborhood": "Miami Beach"},
+      {"hotel_id": "MIA005", "name": "Life House", "price_per_night": 195, "rating": 4, "neighborhood": "Little Havana"}
+    ],
+    "SEA": [
+      {"hotel_id": "SEA001", "name": "Four Seasons Seattle", "price_per_night": 420, "rating": 5, "neighborhood": "Downtown"},
+      {"hotel_id": "SEA002", "name": "Ace Hotel Seattle", "price_per_night": 180, "rating": 4, "neighborhood": "Belltown"},
+      {"hotel_id": "SEA003", "name": "The Edgewater", "price_per_night": 280, "rating": 4, "neighborhood": "Waterfront"},
+      {"hotel_id": "SEA004", "name": "Moxy Seattle", "price_per_night": 140, "rating": 3, "neighborhood": "South Lake Union"},
+      {"hotel_id": "SEA005", "name": "Hotel Sorrento", "price_per_night": 220, "rating": 4, "neighborhood": "First Hill"}
+    ]
+  },
+  "activities": {
+    "NYC": [
+      {"activity_id": "NYC_A1", "name": "Broadway Show", "type": "entertainment", "price": 150, "duration": "3 hours"},
+      {"activity_id": "NYC_A2", "name": "Statue of Liberty Tour", "type": "sightseeing", "price": 45, "duration": "4 hours"},
+      {"activity_id": "NYC_A3", "name": "Central Park Bike Tour", "type": "outdoor", "price": 55, "duration": "2 hours"},
+      {"activity_id": "NYC_A4", "name": "MoMA Museum Visit", "type": "culture", "price": 30, "duration": "3 hours"},
+      {"activity_id": "NYC_A5", "name": "Food Tour in Chinatown", "type": "food", "price": 75, "duration": "3 hours"}
+    ],
+    "LAX": [
+      {"activity_id": "LAX_A1", "name": "Hollywood Sign Hike", "type": "outdoor", "price": 0, "duration": "3 hours"},
+      {"activity_id": "LAX_A2", "name": "Universal Studios", "type": "entertainment", "price": 120, "duration": "8 hours"},
+      {"activity_id": "LAX_A3", "name": "Getty Museum", "type": "culture", "price": 0, "duration": "4 hours"},
+      {"activity_id": "LAX_A4", "name": "Santa Monica Pier", "type": "sightseeing", "price": 0, "duration": "2 hours"},
+      {"activity_id": "LAX_A5", "name": "Venice Beach Walking Tour", "type": "outdoor", "price": 25, "duration": "2 hours"}
+    ],
+    "MIA": [
+      {"activity_id": "MIA_A1", "name": "Everglades Airboat Tour", "type": "outdoor", "price": 75, "duration": "4 hours"},
+      {"activity_id": "MIA_A2", "name": "Art Deco Walking Tour", "type": "sightseeing", "price": 30, "duration": "2 hours"},
+      {"activity_id": "MIA_A3", "name": "Little Havana Food Tour", "type": "food", "price": 65, "duration": "3 hours"},
+      {"activity_id": "MIA_A4", "name": "South Beach Sunset Cruise", "type": "outdoor", "price": 55, "duration": "2 hours"},
+      {"activity_id": "MIA_A5", "name": "Wynwood Walls Art Tour", "type": "culture", "price": 20, "duration": "2 hours"}
+    ],
+    "SEA": [
+      {"activity_id": "SEA_A1", "name": "Pike Place Market Tour", "type": "food", "price": 45, "duration": "2 hours"},
+      {"activity_id": "SEA_A2", "name": "Space Needle Visit", "type": "sightseeing", "price": 35, "duration": "1 hour"},
+      {"activity_id": "SEA_A3", "name": "Chihuly Garden and Glass", "type": "culture", "price": 30, "duration": "2 hours"},
+      {"activity_id": "SEA_A4", "name": "Puget Sound Kayaking", "type": "outdoor", "price": 85, "duration": "3 hours"},
+      {"activity_id": "SEA_A5", "name": "Underground Tour", "type": "sightseeing", "price": 25, "duration": "1.5 hours"}
+    ]
+  }
+}

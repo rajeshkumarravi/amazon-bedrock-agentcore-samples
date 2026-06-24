@@ -32,7 +32,8 @@ app = BedrockAgentCoreApp()
 log = app.logger
 
 APP_NAME = "googleOInfTravelContainer"
-MODEL_ID = "gemini-2.5-flash"
+BEDROCK_MODEL_ID = os.getenv("BEDROCK_MODEL_ID", "us.anthropic.claude-sonnet-4-5-20250929-v1:0")
+MODEL_ID = f"openai/{BEDROCK_MODEL_ID}"
 
 _data_path = Path(__file__).parent / "travel_data.json"
 with open(_data_path) as f:

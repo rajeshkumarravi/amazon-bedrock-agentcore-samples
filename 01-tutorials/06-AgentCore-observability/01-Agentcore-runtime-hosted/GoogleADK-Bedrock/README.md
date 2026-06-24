@@ -1,6 +1,15 @@
-# Google ADK on AgentCore Runtime using Bedrock models
+# Google ADK on AgentCore Runtime using Amazon Bedrock (Claude via LiteLLM)
 
-Demonstrates Google ADK agent hosted in Amazon Bedrock AgentCore Runtime using Bedrock models.
+Demonstrates a Google ADK travel agent hosted in Amazon Bedrock AgentCore Runtime, using **Claude (Anthropic) models on Amazon Bedrock** via [LiteLLM](https://docs.litellm.ai/) as an OpenAI-compatible proxy.
+
+## How it works
+
+Google ADK natively supports OpenAI-compatible model endpoints. This sample uses LiteLLM as a sidecar proxy that:
+1. Exposes an OpenAI-compatible API on `localhost:4000`
+2. Translates requests to Amazon Bedrock API calls
+3. Uses the IAM execution role attached to the AgentCore runtime for authentication (no API keys needed)
+
+The agent model is configured as `openai/<BEDROCK_MODEL_ID>`, which tells Google ADK to route requests through the OpenAI-compatible LiteLLM endpoint.
 
 
 ## Step by step instructions
@@ -73,7 +82,12 @@ Keeping 'google_adk_bedrock_demo' as default agent
 
 **Recommended**
 ```bash
-uv run agentcore deploy -env AWS_REGION=us-east-1 -env BEDROCK_MODEL_ID=us.anthropic.claude-sonnet-4-5-20250929-v1:0
+uv run agentcore deploy -env BEDROCK_MODEL_ID=us.anthropic.claude-sonnet-4-5-20250929-v1:0
+```
+
+**With OTEL filters**
+```bash
+uv run agentcore deploy -env BEDROCK_MODEL_ID=us.anthropic.claude-sonnet-4-5-20250929-v1:0 -env OTEL_PYTHON_EXCLUDED_URLS="/health,/BerriAI/**"
 ```
 
 <details>

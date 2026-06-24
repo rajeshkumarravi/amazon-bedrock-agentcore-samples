@@ -73,7 +73,7 @@ Keeping 'google_adk_bedrock_demo' as default agent
 
 **Recommended**
 ```bash
-uv run agentcore deploy -env AWS_REGION=us-east-1
+uv run agentcore deploy -env AWS_REGION=us-east-1 -env BEDROCK_MODEL_ID=us.anthropic.claude-sonnet-4-5-20250929-v1:0
 ```
 
 <details>

@@ -80,14 +80,14 @@ Keeping 'google_adk_bedrock_demo' as default agent
 
 ### Deploy agent to Runtime
 
-**Recommended**
+With Bedrock Model id
 ```bash
 uv run agentcore deploy -env BEDROCK_MODEL_ID=us.anthropic.claude-sonnet-4-5-20250929-v1:0
 ```
 
-**With OTEL filters**
+**[Recommended]** With OTEL filters
 ```bash
-uv run agentcore deploy -env BEDROCK_MODEL_ID=us.anthropic.claude-sonnet-4-5-20250929-v1:0 -env OTEL_PYTHON_EXCLUDED_URLS="/health,/BerriAI/**"
+uv run agentcore deploy -env BEDROCK_MODEL_ID=us.anthropic.claude-sonnet-4-5-20250929-v1:0 -env OTEL_PYTHON_EXCLUDED_URLS="/ping,/health" -env OTEL_PYTHON_STARLETTE_EXCLUDED_URLS="/ping" -env OTEL_PYTHON_HTTPX_EXCLUDED_URLS="/BerriAI" -env OTEL_PYTHON_AIOHTTP_CLIENT_EXCLUDED_URLS="/model"
 ```
 
 <details>
@@ -96,19 +96,19 @@ uv run agentcore deploy -env BEDROCK_MODEL_ID=us.anthropic.claude-sonnet-4-5-202
 Using ADOT native instrumentation
 
 ```bash
-uv run agentcore deploy -env AWS_REGION=us-east-1 -env AGENT_OBSERVABILITY_ENABLED=true
+uv run agentcore deploy -env BEDROCK_MODEL_ID=us.anthropic.claude-sonnet-4-5-20250929-v1:0 -env AGENT_OBSERVABILITY_ENABLED=true
 ```
 
 Disable extracting messages from trace to logs
 
 ```bash
-uv run agentcore deploy -env AWS_REGION=us-east-1 -env AWS_GENAI_CONTENT_EXTRACTION_OPT_OUT=true
+uv run agentcore deploy -env BEDROCK_MODEL_ID=us.anthropic.claude-sonnet-4-5-20250929-v1:0 -env AWS_GENAI_CONTENT_EXTRACTION_OPT_OUT=true
 ```
 
 Using ADOT native instrumentation and disable extracting messages from trace to logs
 
 ```bash
-uv run agentcore deploy -env AWS_REGION=us-east-1 -env AGENT_OBSERVABILITY_ENABLED=true -env AWS_GENAI_CONTENT_EXTRACTION_OPT_OUT=true
+uv run agentcore deploy -env BEDROCK_MODEL_ID=us.anthropic.claude-sonnet-4-5-20250929-v1:0 -env AGENT_OBSERVABILITY_ENABLED=true -env AWS_GENAI_CONTENT_EXTRACTION_OPT_OUT=true
 ```
 
 </details>

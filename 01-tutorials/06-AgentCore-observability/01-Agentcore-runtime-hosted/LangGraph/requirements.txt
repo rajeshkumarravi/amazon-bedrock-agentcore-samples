@@ -1,6 +1,8 @@
 ddgs
-langgraph>=0.3.23
-langchain[aws]>=0.3.21
+# langgraph>=0.3.23
+# langchain[aws]>=0.3.21
+langgraph
+langchain[aws]
 opentelemetry-instrumentation-langchain
 bedrock-agentcore
 aws-opentelemetry-distro==0.18.0

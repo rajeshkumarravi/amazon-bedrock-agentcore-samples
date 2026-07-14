@@ -269,3 +269,4 @@ Dockerfile
 .github/
 .cursor/
 .agents/
+.env.omni

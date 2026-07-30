@@ -12,6 +12,7 @@ import uuid
 import time
 import json
 import logging
+import random
 
 import boto3
 from botocore.auth import SigV4Auth
@@ -31,9 +32,11 @@ PROMPTS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "prompts
 
 
 def load_prompts(filepath):
-    """Load prompts from a text file (one prompt per line, skipping blank lines)."""
+    """Load prompts from a text file (one prompt per line, skipping blank lines) and shuffle."""
     with open(filepath, "r", encoding="utf-8") as f:
-        return [line.strip() for line in f if line.strip()]
+        prompts = [line.strip() for line in f if line.strip()]
+    random.shuffle(prompts)
+    return prompts
 
 
 PROMPTS = load_prompts(PROMPTS_FILE)

@@ -1,0 +1,7 @@
+{
+  "OtelCollectorStack": {
+    "ApiKeyId": "ma98fi53wa",
+    "CollectorApiEndpoint69F112F5": "https://briyn870t8.execute-api.us-east-1.amazonaws.com/prod/",
+    "IngestEndpoint": "https://briyn870t8.execute-api.us-east-1.amazonaws.com/prod/"
+  }
+}

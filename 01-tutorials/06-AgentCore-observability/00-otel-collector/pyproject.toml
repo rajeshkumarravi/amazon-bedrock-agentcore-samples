@@ -1,0 +1,17 @@
+[project]
+name = "otel-collector-cdk"
+version = "0.1.0"
+description = "ECS-hosted ADOT OpenTelemetry collector forwarding logs/metrics/traces to CloudWatch, fronted by API Gateway with API-key auth."
+requires-python = ">=3.10"
+dependencies = [
+    "aws-cdk-lib>=2.150.0,<3.0.0",
+    "constructs>=10.0.0,<11.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "boto3>=1.34.0",
+]
+
+[tool.uv]
+package = false

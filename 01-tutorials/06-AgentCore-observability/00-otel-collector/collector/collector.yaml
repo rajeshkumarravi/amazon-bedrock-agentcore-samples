@@ -1,0 +1,82 @@
+# ADOT Collector configuration.
+#
+# Receives OTLP (traces, metrics, logs) over HTTP/gRPC and forwards each signal
+# to the corresponding CloudWatch backend:
+#   - traces  -> AWS X-Ray            (awsxray exporter)
+#   - metrics -> CloudWatch Metrics   (awsemf exporter, via EMF log events)
+#   - logs    -> CloudWatch Logs      (awscloudwatchlogs exporter)
+#
+# The collector authenticates to AWS using the ECS task role credentials
+# (no static keys). Region is taken from the AWS_REGION env var injected by ECS.
+
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        endpoint: 0.0.0.0:4318
+
+processors:
+  # Bound queue latency and batch sizes so downstream PutLogEvents/PutTraceSegments
+  # calls stay within CloudWatch/X-Ray request limits.
+  batch/traces:
+    timeout: 5s
+    send_batch_size: 50
+  batch/metrics:
+    timeout: 60s
+  batch/logs:
+    timeout: 5s
+    send_batch_size: 100
+
+  # Protects the collector from OOM under load; drops data before it crashes.
+  memory_limiter:
+    check_interval: 1s
+    limit_percentage: 80
+    spike_limit_percentage: 25
+
+exporters:
+  # Traces -> AWS X-Ray
+  awsxray:
+    # region is picked up from AWS_REGION; index all annotations by default.
+    indexed_attributes:
+      - "session.id"
+      - "gen_ai.system"
+      - "gen_ai.request.model"
+
+  # Metrics -> CloudWatch (Embedded Metric Format written to a log group)
+  awsemf:
+    namespace: "AgentCore/OTelCollector"
+    log_group_name: "/aws/otel-collector/metrics"
+    log_stream_name: "otel-metrics"
+    resource_to_telemetry_conversion:
+      enabled: true
+
+  # Logs -> CloudWatch Logs
+  awscloudwatchlogs:
+    log_group_name: "/aws/otel-collector/logs"
+    log_stream_name: "otel-logs"
+
+extensions:
+  # Liveness/readiness probe endpoint used by the ECS/NLB health check.
+  health_check:
+    endpoint: 0.0.0.0:13133
+
+service:
+  extensions: [health_check]
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [memory_limiter, batch/traces]
+      exporters: [awsxray]
+    metrics:
+      receivers: [otlp]
+      processors: [memory_limiter, batch/metrics]
+      exporters: [awsemf]
+    logs:
+      receivers: [otlp]
+      processors: [memory_limiter, batch/logs]
+      exporters: [awscloudwatchlogs]
+  telemetry:
+    logs:
+      level: info

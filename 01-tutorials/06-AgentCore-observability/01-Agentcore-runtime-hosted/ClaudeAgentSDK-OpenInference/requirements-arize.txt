@@ -1,5 +1,7 @@
 bedrock-agentcore
 openinference-instrumentation-claude-agent-sdk
 claude-agent-sdk
+arize-otel
+opentelemetry-sdk
+opentelemetry-api
 opentelemetry-exporter-otlp
-aws-opentelemetry-distro>=0.19.0
